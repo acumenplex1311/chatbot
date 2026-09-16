@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { Chatbot } from 'supersimpledev'
-import './ChatInput.css'
+import { useState } from 'react';
+import { Chatbot } from 'supersimpledev';
+import './ChatInput.css';
 
 function ChatInput({ chatMessages, setChatMessages }) {
   const [inputMessage, setInputMessage] = useState('');
@@ -34,16 +34,19 @@ function ChatInput({ chatMessages, setChatMessages }) {
   }
 
   return (
-    <>
+    <div className='chat-input-container'>
       <input
         type='text'
         placeholder='Send a message to chatbot'
         onChange={handleChange}
         value={inputMessage}
+        className='chat-input'
         size='30'
       />
-      <button onClick={handleSendMessage}>Send</button>
-    </>
+      <button onClick={handleSendMessage} className='send-btn'>
+        Send
+      </button>
+    </div>
   );
 }
 

@@ -1,22 +1,28 @@
-import UserProfileImage from '../assets/user.png'
-import RobotProfileImage from '../assets/robot.png'
-import './ChatMessage.css'
+import UserProfileImage from '../assets/user.png';
+import RobotProfileImage from '../assets/robot.png';
+import './ChatMessage.css';
 
 function ChatMessage({ message, sender }) {
   // const { message, sender } = prop
 
   return (
-    <div>
+    <div
+      className={
+        sender === 'user' ? 'chat-message-user' : 'chat-message-robot'
+      }>
       {sender === 'robot' && (
         <img src={RobotProfileImage} className='chat-message-profile' />
       )}
-      {message}
+
+      <div className='chat-message-text'>
+        {message}
+      </div>
 
       {sender === 'user' && (
         <img src={UserProfileImage} className='chat-message-profile' />
       )}
     </div>
-  )
+  );
 }
 
-export default ChatMessage
+export default ChatMessage;
